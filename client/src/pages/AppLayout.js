@@ -66,7 +66,7 @@ const AppLayout = (props) => {
                 <Route exact path="/">
                   <Launch
                     entered={anim.entered}
-                    planets={planets?.planets}
+                    planets={planets}
                     submitLaunch={submitLaunch}
                     isPendingLaunch={isPendingLaunch}
                   />
@@ -74,7 +74,7 @@ const AppLayout = (props) => {
                 <Route exact path="/launch">
                   <Launch
                     entered={anim.entered}
-                    planets={planets?.planets}
+                    planets={planets}
                     submitLaunch={submitLaunch}
                     isPendingLaunch={isPendingLaunch}
                   />
