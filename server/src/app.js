@@ -9,6 +9,7 @@ const planetsRouter = require("./routes/planets/planets.router");
 const launchesRouter = require("./routes/launches/launches.router");
 
 //this will allow all request from other origins
+app.use(express.json());
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -16,7 +17,6 @@ app.use(
 );
 app.use(morgan("combined"));
 
-app.use(express.json());
 app.use("/planets", planetsRouter);
 app.use("/launches", launchesRouter);
 app.use(express.static(path.join(__dirname, "..", "public")));
