@@ -5,8 +5,9 @@ const {
   abortLaunchById,
 } = require("../../models/launch.models");
 
-function httpGetAllLaunches(req, res) {
-  return res.status(200).json(getAllLaunches());
+async function httpGetAllLaunches(req, res) {
+  const planets = await getAllLaunches();
+  return res.status(200).json(planets);
 }
 // Array.from(launches.values());
 

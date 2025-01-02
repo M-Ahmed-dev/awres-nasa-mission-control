@@ -32,3 +32,6 @@ const launchesSchema = new mongoose.Schema({
   },
   customers: [String],
 });
+
+//collection name to create and schema name
+module.exports = mongoose.model("Launch", launchesSchema);
