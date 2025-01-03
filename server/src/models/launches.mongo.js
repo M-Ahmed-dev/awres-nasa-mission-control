@@ -5,7 +5,7 @@ const launchesSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  launcDate: {
+  launchDate: {
     type: Date,
     required: true,
   },
@@ -30,7 +30,7 @@ const launchesSchema = new mongoose.Schema({
     required: true,
     default: true,
   },
-  customers: [String],
+  customer: [String],
 });
 
 //collection name to create and schema name

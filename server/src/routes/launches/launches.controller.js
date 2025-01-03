@@ -1,17 +1,17 @@
 const {
   getAllLaunches,
-  addNewLaunch,
+  scheduleNewLaunch,
   existsLaunchWithId,
   abortLaunchById,
 } = require("../../models/launch.models");
 
 async function httpGetAllLaunches(req, res) {
-  const planets = await getAllLaunches();
-  return res.status(200).json(planets);
+  const launches = await getAllLaunches();
+  return res.status(200).json(launches);
 }
 // Array.from(launches.values());
 
-function httpAddNewLaunch(req, res) {
+async function httpAddNewLaunch(req, res) {
   const launch = req.body;
 
   if (
@@ -33,15 +33,17 @@ function httpAddNewLaunch(req, res) {
     });
   }
 
-  addNewLaunch(launch);
+  await scheduleNewLaunch(launch);
   return res.status(201).json(launch);
 }
 
-function httpAbortLaunch(req, res) {
+async function httpAbortLaunch(req, res) {
   const launchId = Number(req.params.id);
   console.log("launchId::", launchId);
 
-  if (!existsLaunchWithId(launchId))
+  const existLaunch = await existsLaunchWithId(launchId);
+
+  if (!existLaunch)
     return res.status(404).json({
       error: "Launch dosen't exist",
     });
