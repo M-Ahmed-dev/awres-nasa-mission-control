@@ -13,7 +13,7 @@ describe("Launches Api", () => {
   describe("Test Get /lanuches", () => {
     test("It Should respond with 200 success", async () => {
       const response = await request(app)
-        .get("/launches")
+        .get("/v1/launches")
         .expect("Content-Type", /json/)
         .expect(200);
     });
@@ -34,7 +34,7 @@ describe("Launches Api", () => {
 
     test("It should respond with 201 success", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(completeLaunchData)
         .expect("Content-Type", /json/)
         .expect(201);
