@@ -43,9 +43,6 @@ async function httpAbortLaunch(id) {
       ok: false,
     };
   }
-
-  // TODO: Once API is ready.
-  // Delete launch with given ID.
 }
 
 export { httpGetPlanets, httpGetLaunches, httpSubmitLaunch, httpAbortLaunch };
