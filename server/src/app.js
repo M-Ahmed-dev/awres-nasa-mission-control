@@ -3,10 +3,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
-// routers
-const planetsRouter = require("./routes/planets/planets.router");
-const launchesRouter = require("./routes/launches/launches.router");
+const api = require("./routes/api");
 
 //this will allow all request from other origins
 app.use(express.json());
@@ -17,8 +14,8 @@ app.use(
 );
 app.use(morgan("combined"));
 
-app.use("/planets", planetsRouter);
-app.use("/launches", launchesRouter);
+app.use("/v1", api);
+
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 //serving file
